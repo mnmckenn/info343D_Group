@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Sign up</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+	<script src="js/app.js"></script>
+	
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+</head>
+
+<body ng-app="ourApp">
+    <div class="container" ng-controller="ourCtrl">
+        <form class="form-horizontal" name="ourForm" id="form-element" novalidate = "">  
+            <ul>
+                
+				<li>
+					<h4>First Name</h4>
+					<div class="invalidEntry" ng-show="ourForm.firstName.$touched">
+                        <span ng-show="ourForm.firstName.$error.required">Please input your First Name</span>
+                    </div>
+                    <input type="text" class="form-control" name="firstName" placeholder="e.g. John" ng-model="firstName" ng-minlength="1" required >
+                </li>
+				
+                <li>
+					<h4>Last Name</h4>
+					<!--<div class="invalidEntry" ng-show="ourForm.lastName.$touched">
+						<span ng-show="ourForm.lastName.$error.required">Please input your Last Name</span>
+					</div>-->
+                    <input type="text" class="form-control" name="lastName" placeholder="e.g. Doe" ng-model="lastName">
+                </li>
+                
+                <li>
+					<h4>Email</h4>
+					<div class="invalidEntry" ng-show="ourForm.email.$touched">
+						<span ng-show="ourForm.email.$error.required">Please input your email address</span>
+						<span ng-show="ourForm.email.$error.email">Please input a proper email address <i>(requires an @)</i></span>
+					</div>
+                    <input type="email" class="form-control" name="email" placeholder="e.g. JohnDoe@Gmail.com" ng-model="email" required >
+                </li>
+                
+                <li>
+					<h4>Birthdate</h4>
+					<div class="invalidEntry" ng-show="ourForm.DOB.$touched">
+                            <span ng-show="ourForm.DOB.$error.required">Please input your Birthdate</span>
+                            <span ng-show="getAge() == false">Sorry, must be 13 or older!</span>
+                            <span ng-show="getAge() == -1">Please format your age MM/DD/YYYY</span>
+					</div>
+                    <input type="text" class="form-control" name="DOB" id="DOB" placeholder="MM/DD/YYYY" ng-model="DOB" 
+					ng-focus="ageValid = null" ng-blur="getAge(DOB)" ng-minlength="6" required >
+                </li>
+                
+                <li>
+					<h4>Password</h4>
+					<div class="invalidEntry" ng-show="ourForm.password.$touched">
+						<span ng-show="ourForm.password.$error.required">Please enter a password</span>
+					</div>
+                    <input type="password" class="form-control" name="password" placeholder="Password" ng-model="password" required >
+                </li>
+				       
+                <li>
+					<h4>Confirm Password</h4>
+					<div class="invalidEntry">
+						<span ng-show="!passwordMatch()">Please re-enter your password</span>
+					</div>
+                    <input type="password" class="form-control" name="confirmpassword" placeholder="Confirm Password"  ng-change="passwordMatch()" ng-model="confirmpassword" required >
+                </li>
+            </ul>
+			
+			 <button type="submit" class="btn btn-primary" ng-click= "resetForm()" ng-disabled="ourForm.$pristine" id="reset-button">Reset</button>
+            <button type="submit" class="btn btn-primary" ng-click="submitForm(ourForm)" ng-disabled="ourForm.$invalid" id="submit-button">Submit</button>
+			
+        </form>
+        
+
+    </div>
+
+
+</body>
+</html>
