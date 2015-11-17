@@ -22,29 +22,29 @@
 	
     <div class="container" ng-controller="ourCtrl">
         <form class="form" name="ourForm" id="form" novalidate = "" role="form">  
-        	<div class="form-group">
+        	<div class="form-group css-form">
         		<label for="firstName">First Name</label>
-					<div class="invalidEntry" ng-show="ourForm.firstName.$touched">
+					<!--<div class="invalidEntry" ng-show="ourForm.firstName.$touched">
                         <span ng-show="ourForm.firstName.$error.required">Please input your First Name</span>
-                    </div>
-                <input type="text" class="form-control" name="firstName" placeholder="e.g. John" ng-model="firstName">
+                    </div>-->
+                <input type="text" class="form-control" name="firstName" placeholder="e.g. John" ng-model="firstName" ng-required="true">
         	</div>
-        	<div class="form-group">
+        	<div class="form-group css-form">
         		<label for="lastName">Last Name</label>
         		<div class="invalidEntry" ng-show="ourForm.lastName.$touched">
 					<span ng-show="ourForm.lastName.$error.required">Please input your Last Name</span>
 				</div>
-                <input type="text" class="form-control" name="lastName" placeholder="e.g. Doe" ng-model="lastName" ng-minlength="1" required>
+                <input type="text" class="form-control" name="lastName" placeholder="e.g. Doe" ng-model="lastName" ng-minlength="1" ng-required="true">
         	</div>
-            <div class="form-group">
+            <div class="form-group css-form">
             	<label for="email">Email</label>
             	<div class="invalidEntry" ng-show="ourForm.email.$touched">
 						<span ng-show="ourForm.email.$error.required">Please input your email address</span>
 						<span ng-show="ourForm.email.$error.email">Please input a proper email address! For example: <i>example@domain.com</i></span>
 				</div>
-                <input type="email" class="form-control" name="email" placeholder="e.g. JohnDoe@Gmail.com" ng-model="email" required>
+                <input type="email" class="form-control" name="email" placeholder="e.g. JohnDoe@Gmail.com" ng-model="email" required ng-required="true">
             </div>
-            <div class="form-group">
+            <div class="form-group css-form">
             	<label for="DOB">Birthdate</label>
 				<div class="invalidEntry" ng-show="ourForm.DOB.$touched">
                     <span ng-show="ourForm.DOB.$error.required">Please input your Birthdate</span>
@@ -52,21 +52,21 @@
                     <span ng-show="getAge() == -1">Please format your age MM/DD/YYYY</span>
 				</div>
                 <input type="text" class="form-control" name="DOB" id="DOB" placeholder="MM/DD/YYYY" ng-model="DOB" 
-				ng-focus="ageValid = null" ng-blur="getAge(DOB)" ng-minlength="6" required>
+				ng-focus="ageValid = null" ng-blur="getAge(DOB)" ng-minlength="6" ng-required="true">
             </div>
-            <div class="form-group">
+            <div class="form-group css-form">
 				<label for="password">Password</label>
 				<div class="invalidEntry" ng-show="ourForm.password.$touched">
 					<span ng-show="ourForm.password.$error.required">Please enter a password</span>
 				</div>
-                <input type="password" class="form-control" name="password" placeholder="Password" ng-model="password" required>
+                <input type="password" class="form-control" name="password" placeholder="Password" ng-model="password" ng-required="true">
             </div>
-			<div class="form-group">
+			<div class="form-group css-form">
 				<label for="confirmpassword">Confirm Password</label>
 				<div class="invalidEntry">
 					<span ng-show="!passwordMatch()">Please re-enter your password</span>
 				</div>
-                <input type="password" class="form-control" name="confirmpassword" placeholder="Confirm Password"  ng-change="passwordMatch()" ng-model="confirmpassword" required>
+                <input type="password" class="form-control" name="confirmpassword" placeholder="Confirm Password"  ng-change="passwordMatch()" ng-model="confirmpassword" ng-required="true">
 			</div>      
 			
 			<button type="submit" class="btn btn-primary" ng-click= "resetForm()" ng-disabled="ourForm.$pristine" id="reset-button">Reset</button>
