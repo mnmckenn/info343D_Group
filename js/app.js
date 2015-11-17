@@ -10,7 +10,7 @@ angular.module('ourApp', [])
 	
 	$scope.resetForm = function() {
 		alert("Ok, let's try again");
-		document.getElementById("form-element").reset();
+		document.getElementById("form").reset();
 	}
 	
 	$scope.getAge = function(DOB) {
