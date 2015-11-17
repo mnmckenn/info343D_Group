@@ -9,7 +9,7 @@ angular.module('ourApp', [])
 	}
 	
 	$scope.resetForm = function() {
-		alert("Ok, let's try again");
+		//alert("Ok, let's try again");
 		document.getElementById("form").reset();
 	}
 	
