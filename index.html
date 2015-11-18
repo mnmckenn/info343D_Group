@@ -46,13 +46,12 @@
             </div>
             <div class="form-group css-form">
             	<label for="DOB">Birthdate</label>
-				<div class="invalidEntry" ng-show="ourForm.DOB.$touched">
-                    <span ng-show="ourForm.DOB.$error.required">Please input your Birthdate</span>
-                    <span ng-show="getAge() == false">Sorry, must be 13 or older!</span>
-                    <span ng-show="getAge() == -1">Please format your age MM/DD/YYYY</span>
-				</div>
-                <input type="text" class="form-control" name="DOB" id="DOB" placeholder="MM/DD/YYYY" ng-model="DOB" 
-				ng-focus="ageValid = null" ng-blur="getAge(DOB)" ng-minlength="6" ng-required="true">
+				<div class="invalidEntry" ng-if="ourForm.DOB.$touched">
+                            <span ng-if="ourForm.DOB.$error.required">Please input your Birthdate</span>
+                            <span ng-if="getAge(DOB) == false">Sorry, must be 13 or older!</span>
+                            <span ng-if="form.DOB.$error.pattern">Incorrect Format, should be MM/DD/YYYY</span>
+                    </div>
+                    <input type="text" class="form-control" name="DOB" id="DOB" bili-date-converter="MM-dd-YYYY to YYYY-dd-MM" placeholder="MM/DD/YYYY" ng-pattern='/^(0?[1-9]|1[012])\/(0?[1-9]|[12][0-9]|3[01])\/(199\d)|([2-9]\d{3})$/' ng-model="DOB" ng-focus="getAge(DOB)" ng-blur="getAge(DOB)" ng-minlength="6" required>
             </div>
             <div class="form-group css-form">
 				<label for="password">Password</label>

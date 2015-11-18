@@ -13,7 +13,23 @@ describe('Sign up form', function () {
         expect(element(by.id('submit-button')).isPresent()).toEqual(true);
     });
 
+    //date of birth validity test
+    it('should have a date of birth field that validates based on age', function() {
+        expect(element(by.id('form')).isPresent()).toEqual(true);
+        expect(element(by.id('DOB')).isPresent()).toEqual(true);
+        //check to see if entering a date less than 13 years old yields an error message
+        element(by.model('DOB')).sendKeys('04/08/2005');
+        expect(element(by.model('DOB')).getAttribute('class')).toContain('ng-dirty');
 
+        //check to see if leaving the field blank yields an error message
+        element(by.model('DOB')).clear();
+        expect(element(by.model('email')).getAttribute('class')).toContain('ng-invalid');
+        
+        //check valid DOB
+        element(by.model('DOB')).sendKeys('04/08/1995');
+        expect(element(by.model('DOB')).getAttribute('class')).toContain('ng-valid');
+    });
+    
     //email address validity test
     it('should check for a valid email address', function() {
     	element(by.model('email')).clear();
