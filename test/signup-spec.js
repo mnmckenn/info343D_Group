@@ -68,4 +68,25 @@ describe('Sign up form', function () {
         expect(lastName.getAttribute('class')).toContain('ng-valid');
     });
 	
+	it('should have password forms that validate', function(){
+        var password = element(by.name('password'));
+		var confirmPassword = element(by.name('confirmpassword'));
+		var changeError = element(by.id('changeError'));
+		
+        expect(password.isPresent()).toEqual(true);
+        expect(confirmPassword.isPresent()).toEqual(true);
+
+        expect(password.getAttribute('class')).toMatch('ng-invalid-required');
+        password.sendKeys("Hunter2");
+        expect(password.getAttribute('class')).toMatch('ng-valid');
+
+        expect(changeError.isDisplayed());
+        
+        expect(confirmpassword.getAttribute('class')).toMatch('ng-invalid-required');
+        confirmpassword.sendKeys("Hunter2");
+        expect(confirmpassword.getAttribute('class')).toMatch('ng-valid');        
+
+        expect(!changeError.isDisplayed());
+    });
+	
 });

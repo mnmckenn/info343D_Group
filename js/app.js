@@ -22,10 +22,15 @@ angular.module('ourApp', [])
         }
     }
 	
-	$scope.passwordMatch = function() {
-	
-		//placeholder
-		return true;
-	}
+	  $scope.passwordMatch = function(){
+    	if ($scope.password === $scope.confirmpassword){
+    		$scope.teamForm.confirmpassword.$setValidity('$invalid', true);
+    		return true;
+    	}
+    	else{
+    		$scope.teamForm.confirmpassword.$setValidity('$invalid', false);
+    		return false;   	
+    	}
+    }
 	
 }]);

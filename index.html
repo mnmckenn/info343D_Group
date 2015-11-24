@@ -65,6 +65,9 @@
 				<div class="invalidEntry">
 					<span ng-show="!passwordMatch()">Please re-enter your password</span>
 				</div>
+				<div class="invalidEntry" ng-show="!passwordsMatch()" id="changeError">
+                            <span>Passwords must match</span>
+                </div>
                 <input type="password" class="form-control" name="confirmpassword" placeholder="Confirm Password"  ng-change="passwordMatch()" ng-model="confirmpassword" ng-required="true">
 			</div>      
 			
