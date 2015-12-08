@@ -19,14 +19,14 @@
 		<h1>Sign-Up</h1>
 		<p>Please use the form below to sign up for our service. Only those 13 years or older are eligible.</p>
 	</div>
-	
+	ng-pattern='/^(0?[1-9]|1[012])\/(0?[1-9]|[12][0-9]|3[01])\/(199\d)|([2-9]\d{3})$/'
+       required ng-model="DOB" type="text">
+    <span ng-show="form.DOB.$error.required">Date Required!</span>
+    <span ng-show="form.DOB.$error.pattern">Incorrect Format, should be MM/DD/YYYY</span>
     <div class="container" ng-controller="ourCtrl">
         <form class="form" name="ourForm" id="form" novalidate = "" role="form">  
         	<div class="form-group css-form">
         		<label for="firstName">First Name</label>
-					<!--<div class="invalidEntry" ng-show="ourForm.firstName.$touched">
-                        <span ng-show="ourForm.firstName.$error.required">Please input your First Name</span>
-                    </div>-->
                 <input type="text" class="form-control" name="firstName" id = "firstName" placeholder="e.g. John" ng-model="firstName" ng-required="true">
         	</div>
         	<div class="form-group css-form">

@@ -1,0 +1,22 @@
+Info 343 Project Description:
+
+- The target audience for our website is local UW DJs and their listeners.
+	
+The overall purpose of our project is to create a site that helps promote local DJ talent 	by allowing them to reach a more targeted audience, UW listeners, through a social 		media that is specific for artists and listeners. The site will have profiles for each artists, 	a ranking system (upvote/downvote) for each artists/song, and finally have a news feed 	that artists and listeners can post information concerning events they might be playing at 	or looking to DJ at. 
+We are creating this web project because currently there isn’t a social media dedicated for music artists and events they are playing at. Members of our group are, and know, DJs and how difficult it is to become known. Our website hopes to fix that problem by provide one easy to use service that allows artists to connect with their listeners.
+
+Project Technologies:
+
+AngularJS
+FireBase
+Bootstrap
+SoundCloud API
+Facebook/Soundcloud OAUTH
+
+User Stories:
+
+As an artists, I want to be able to post important information about events I am playing at, so that I can convey that information to by listeners and potentially attract a larger audience.
+
+2) As a listener, I want to be able to follow artists, so that I can stay up-to-date with their current songs and event information.
+
+4) As a event planner, I want to find DJ contact info, so that I can reach out to them about playing at events I am planning.
